@@ -81,7 +81,7 @@ def falrtc(x, omega=None, alpha=None, mu=None, l=1e-5, c=0.6, max_iter=100, epsi
     mu0 = mu * 1.0
     for k in range(max_iter):
         if (k + 1) % printitn == 0 and k != 0 and printitn != max_iter:
-            print 'FaLRTC: iterations = {0}   difference = {1}\n'.format(k, errList[k - 1])
+            print ('FaLRTC: iterations = {0}   difference = {1}\n'.format(k, errList[k - 1]))
 
         # update mu
         t = slope * 1.0 / (k + 1) ** P + offset
@@ -120,8 +120,8 @@ def falrtc(x, omega=None, alpha=None, mu=None, l=1e-5, c=0.6, max_iter=100, epsi
             if (fx - fy) * l < np.sum(Gx[:] ** 2):
                 if l > Lmax:
                     errList = errList[0:(k + 1)]
-                    print 'FaLRTC: iterations = {0}   difference = {1}\n Exceed the Maximum ' \
-                          'Lipschitiz Constan\n\n'.format(k + 1, errList[k])
+                    print ('FaLRTC: iterations = {0}   difference = {1}\n Exceed the Maximum ' \
+                          'Lipschitiz Constan\n\n'.format(k + 1, errList[k]))
                     return Y
                 l = l / c
             else:
@@ -138,5 +138,5 @@ def falrtc(x, omega=None, alpha=None, mu=None, l=1e-5, c=0.6, max_iter=100, epsi
         B = B + b
 
     errList = errList[0:(k + 1)]
-    print 'FaLRTC ends: total iterations = {0}   difference = {1}\n\n'.format(k + 1, errList[k])
+    print ('FaLRTC ends: total iterations = {0}   difference = {1}\n\n'.format(k + 1, errList[k]))
     return Y
