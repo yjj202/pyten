@@ -63,7 +63,7 @@ def silrtc(x, omega=None, alpha=None, gamma=None, max_iter=100, epsilon=1e-5, pr
 
     for k in range(max_iter):
         if (k + 1) % printitn == 0 and k != 0 and printitn != max_iter:
-            print 'SiLRTC: iterations = {0}   difference = {1}\n'.format(k, errList[k - 1])
+            print ('SiLRTC: iterations = {0}   difference = {1}\n'.format(k, errList[k - 1]))
 
         Xsum = 0
         for i in range(N):
@@ -84,5 +84,5 @@ def silrtc(x, omega=None, alpha=None, gamma=None, max_iter=100, epsilon=1e-5, pr
             errList = errList[0:(k + 1)]
             break
 
-    print 'SiLRTC ends: total iterations = {0}   difference = {1}\n\n'.format(k + 1, errList[k])
+    print ('SiLRTC ends: total iterations = {0}   difference = {1}\n\n'.format(k + 1, errList[k]))
     return x
