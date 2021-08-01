@@ -136,16 +136,16 @@ def scalable(file_name=None, function_name=None, recover=None, omega=None, r=2, 
             newfilename = file_name[:-4] + '_Decomposite' + file_name[-4:]
             #print "\n" + "The original Tensor is: "
             #print X1
-            print "\n" + "The Decomposed Result is: "
-            print Final
+            print ("\n" + "The Decomposed Result is: ")
+            print (Final)
     else:
         newsubs = Rec.tosptensor().subs
         tempvals = Rec.tosptensor().vals
         newfilename = file_name[:-4] + '_Recover' + file_name[-4:]
         #print "\n" + "The original Tensor is: "
         #print Ori
-        print "\n" + "The Recovered Tensor is: "
-        print Rec.data
+        print ("\n" + "The Recovered Tensor is: ")
+        print (Rec.data)
 
     # Return result
     return Ori, full, Final, Rec
