@@ -424,7 +424,7 @@ class DistTensorCompletionADMM(object):
         sc.setLogLevel('WARN')
         sc.addPyFile("pyten/tools/utils_tensor.py")
 
-        print "TIME - Setting up the Spark: {} sec.".format(time.time() - start_program)
+        print ("TIME - Setting up the Spark: {} sec.".format(time.time() - start_program))
 
         # start the timer for processing data
         start_process_data = time.time()
@@ -490,7 +490,7 @@ class DistTensorCompletionADMM(object):
 
         normData = np.sqrt(rawData.map(lambda x: x.val * x.val).sum())
 
-        print "INFO - A tensor of the size {}x{}x{} with {} non-zero elements.".format(self.I, self.J, self.K, self.nnz)
+        print ("INFO - A tensor of the size {}x{}x{} with {} non-zero elements.".format(self.I, self.J, self.K, self.nnz))
 
         def mergeValue(agg, v):
             f = agg
@@ -513,7 +513,7 @@ class DistTensorCompletionADMM(object):
                               .partitionBy(numPartitions, lambda key: hash(key))\
                               .persist(self.intermediateRDDStorageLevel)
 
-        print "TIME - Process Raw Tensor Data: {} sec.".format(time.time() - start_process_data)
+        print ("TIME - Process Raw Tensor Data: {} sec.".format(time.time() - start_process_data))
 
         # start the timer for the initialization
         start_init = time.time()
@@ -533,7 +533,7 @@ class DistTensorCompletionADMM(object):
         Yj = self.initFactors(self.J, sc, jPartitioner, 'variable')
         Yk = self.initFactors(self.K, sc, kPartitioner, 'variable')
 
-        print "TIME - Initial Factor Matrices: {} sec.".format(time.time() - start_init)
+        print ("TIME - Initial Factor Matrices: {} sec.".format(time.time() - start_init))
 
         # calculate AtA for dimensions J and K
         jAtA = self.computeAtA(jFactors)
@@ -550,7 +550,7 @@ class DistTensorCompletionADMM(object):
         # calculate the initial residual tensor
         Pt = self.initResidualTensor(tensorBlocks)
 
-        print "TIME - Initialize Pt: {} sec.".format(time.time() - start_init_pt)
+        print ("TIME - Initialize Pt: {} sec.".format(time.time() - start_init_pt))
 
         # start a timer for the iteration
         start_iter = time.time()
@@ -568,7 +568,7 @@ class DistTensorCompletionADMM(object):
             Zi = self.computeDualVariable(iFactors, Yi)
             Zj = self.computeDualVariable(jFactors, Yj)
             Zk = self.computeDualVariable(kFactors, Yk)
-            print "TIME: updating Z: {}".format(time.time() - start_update_z)
+            print ("TIME: updating Z: {}".format(time.time() - start_update_z))
 
             # start a timer for the update in the dimension I
             start_update_fact_i = time.time()
@@ -578,7 +578,7 @@ class DistTensorCompletionADMM(object):
             iFactors.persist(self.intermediateRDDStorageLevel)
             # re-calculate the AtA for the dimension I
             iAtA = self.computeAtA(iFactors)
-            print "TIME: updating I: {}".format(time.time() - start_update_fact_i)
+            print ("TIME: updating I: {}".format(time.time() - start_update_fact_i))
 
             # start a timer for the update in the dimension J
             start_update_fact_j = time.time()
@@ -588,7 +588,7 @@ class DistTensorCompletionADMM(object):
             jFactors.persist(self.intermediateRDDStorageLevel)
             # re-calculate the AtA for the dimension J
             jAtA = self.computeAtA(jFactors)
-            print "TIME: updating J: {}".format(time.time() - start_update_fact_j)
+            print ("TIME: updating J: {}".format(time.time() - start_update_fact_j))
 
             # start a timer for the update in the dimension K
             start_update_fact_k = time.time()
@@ -598,7 +598,7 @@ class DistTensorCompletionADMM(object):
             kFactors.persist(self.intermediateRDDStorageLevel)
             # re-calculate the AtA for the dimension K
             kAtA = self.computeAtA(kFactors)
-            print "TIME: updating K: {}".format(time.time() - start_update_fact_k)
+            print ("TIME: updating K: {}".format(time.time() - start_update_fact_k))
 
             # start a timer for the update of the Lagrange multipliers
             start_update_y = time.time()
@@ -606,14 +606,14 @@ class DistTensorCompletionADMM(object):
             Yi = self.computeLargMultiplier(Yi, iFactors, Zi)
             Yj = self.computeLargMultiplier(Yj, jFactors, Zj)
             Yk = self.computeLargMultiplier(Yk, kFactors, Zk)
-            print "TIME: updating Y: {}".format(time.time() - start_update_y)
+            print ("TIME: updating Y: {}".format(time.time() - start_update_y))
 
             # start a timer for the calculation of the residual tensor
             start_update_pt = time.time()
             # update the residual tensor
             Pt = self.computeResidualTensor(tensorBlocks, iFactors, jFactors, kFactors, iOutBlocks, jOutBlocks, kOutBlocks, sc)
             Pt.persist(self.intermediateRDDStorageLevel)
-            print "TIME: updating Pt: {}".format(time.time() - start_update_pt)
+            print ("TIME: updating Pt: {}".format(time.time() - start_update_pt)
 
             lambdaVals = np.array([1 for _ in range(self.rank)])
             # calculate the error and the fit between the original and estimated tensors
@@ -623,7 +623,7 @@ class DistTensorCompletionADMM(object):
             # calculate the change of fit comparing with the previous one
             fitchange = abs(fit - fitold)
             fitold = fit
-            print "Iteration {}: error-{}, fit-{} and fitchange-{} with {} seconds".format(iteration, error, fit, fitchange, time.time() - start_inner)
+            print ("Iteration {}: error-{}, fit-{} and fitchange-{} with {} seconds".format(iteration, error, fit, fitchange, time.time() - start_inner))
             # stopping criteria
             if fitchange < self.tol:
                 break
@@ -647,11 +647,11 @@ class DistTensorCompletionADMM(object):
 
         self.ktensor = pyten.tenclass.Ktensor(lambdaVals, self.Us)
 
-        print errors
-        print fits
+        print (errors)
+        print (fits)
 
-        print "TIME - Completeing the whole iterations: {} sec.".format(time.time() - start_iter)
-        print "TIME - Total computation time: {} sec.".format(time.time() - start_program)
+        print ("TIME - Completeing the whole iterations: {} sec.".format(time.time() - start_iter))
+        print ("TIME - Total computation time: {} sec.".format(time.time() - start_program))
 
 
 if __name__ == "__main__":
