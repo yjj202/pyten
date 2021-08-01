@@ -613,7 +613,7 @@ class DistTensorCompletionADMM(object):
             # update the residual tensor
             Pt = self.computeResidualTensor(tensorBlocks, iFactors, jFactors, kFactors, iOutBlocks, jOutBlocks, kOutBlocks, sc)
             Pt.persist(self.intermediateRDDStorageLevel)
-            print ("TIME: updating Pt: {}".format(time.time() - start_update_pt)
+            print ("TIME: updating Pt: {}".format(time.time() - start_update_pt))
 
             lambdaVals = np.array([1 for _ in range(self.rank)])
             # calculate the error and the fit between the original and estimated tensors
