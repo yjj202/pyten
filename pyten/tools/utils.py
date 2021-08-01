@@ -172,15 +172,15 @@ class NNLS(object):
 if __name__ == "__main__":
     A = [[1,3],[3,9]]
     b = [1,3]
-    print nnls(A,b)
-    print blas.daxpy([1,3], [1,1], a = 0.5)
+    print (nnls(A,b))
+    print (blas.daxpy([1,3], [1,1], a = 0.5))
     solver = NNLS(3)
     solver.constructSymmeticAtA([1,4,5,2,6,3], 0.5)
-    print solver.ata
+    print (solver.ata)
 
     encoder = localIndexEncoder(5)
 
     for i in range(5):
         for j in range(5):
             encoded = encoder.encode(i, j)
-            print encoded, (i,j)==(encoder.getblockId(encoded),encoder.getlocalIdx(encoded))
+            print (encoded, (i,j)==(encoder.getblockId(encoded),encoder.getlocalIdx(encoded)))
