@@ -142,9 +142,9 @@ class AirCP(object):
             self.errList.append(error)
 
             if (k + 1) % self.printitn == 0:
-                print 'AirCP: iterations={0}, difference={1}'.format(k + 1, self.errList[-1])
+                print ('AirCP: iterations={0}, difference={1}'.format(k + 1, self.errList[-1]))
             elif error < self.tol:
-                print 'AirCP: iterations={0}, difference={1}'.format(k + 1, self.errList[-1])
+                print ('AirCP: iterations={0}, difference={1}'.format(k + 1, self.errList[-1]))
 
             if error < self.tol:
                 break
