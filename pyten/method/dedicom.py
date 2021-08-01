@@ -108,7 +108,7 @@ class DEDICOM(object):
                         hessian[s, t] = -2*np.sum(temp1*temp3-temp2*temp4)
                 e = abs(np.linalg.eigvals(hessian).min())
                 hessian = hessian + (np.eye(hessian.shape[0]) * e)
-                print np.linalg.eigvals(hessian)
+                print (np.linalg.eigvals(hessian))
                 self.D[:, :, i] = (np.diag(np.diag(self.D[:, :, i])
                                    - self.gamma*np.linalg.inv(hessian+self.lamb*np.identity(self.rank)).dot(gradient)))
                 self.sigma_new += np.linalg.norm(temp1)**2
@@ -117,11 +117,11 @@ class DEDICOM(object):
             error = abs(self.sigma_new-self.sigma_old) #/self.sigma_old
             self.errList.append(error)
             if (k + 1) % self.printitn == 0:
-                print 'DEDICOM: iterations={0}, difference={1}, fit_difference={2}'.format(k + 1, self.errList[-1],
-                                                                                           self.sigma_new)
+                print ('DEDICOM: iterations={0}, difference={1}, fit_difference={2}'.format(k + 1, self.errList[-1],
+                                                                                           self.sigma_new))
             elif error < self.tol:
-                print 'DEDICOM: iterations={0}, difference={1}, fit_difference={2}'.format(k + 1, self.errList[-1],
-                                                                                           self.sigma_new)
+                print ('DEDICOM: iterations={0}, difference={1}, fit_difference={2}'.format(k + 1, self.errList[-1],
+                                                                                           self.sigma_new))
 
             if error < self.tol:
                 break
