@@ -111,8 +111,8 @@ class Tenmat(object):
 
 if __name__ == '__main__':
     X = pyten.tenclass.Tensor(range(1, 25), [3, 2, 2, 2])
-    print X.data[:, :, 0, 0]
+    print (X.data[:, :, 0, 0])
     A = Tenmat(X, [1, 2], [4, 3])
-    print A.data
-    print A.totensor().data[:, :, 0, 0]
-    print A.__str__()
+    print (A.data)
+    print (A.totensor().data[:, :, 0, 0])
+    print (A.__str__())
