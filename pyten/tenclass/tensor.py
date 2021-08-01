@@ -254,6 +254,6 @@ if __name__ == '__main__':
     X = Tensor(range(1, 25), [2, 4, 3])
     V = [[1, 2], [2, 1]]
     Y = X.ttm(V, 1)
-    print Y.data[:, :, 0]
-    print X.__str__()
-    print X.__class__
+    print (Y.data[:, :, 0])
+    print (X.__str__())
+    print (X.__class__)
