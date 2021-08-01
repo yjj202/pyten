@@ -120,7 +120,7 @@ def scalable(file_name=None, function_name=None, recover=None, omega=None, r=2, 
             ######
 
         elif function_name == '0':
-            print 'Successfully Exit'
+            print ('Successfully Exit')
             return None, None, None, None
         else:
             raise ValueError('No Such Method')
