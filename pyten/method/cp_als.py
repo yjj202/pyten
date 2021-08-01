@@ -142,9 +142,9 @@ def cp_als(y, r=20, omega=None, tol=1e-4, maxiter=100, init='random', printitn=1
 
         if (printitn != 0 and iter % printitn == 0) or ((printitn > 0) and (flag == 0)):
             if recover == 0:
-                print 'CP_ALS: iterations={0}, f={1}, f-delta={2}'.format(iter, fit, fitchange)
+                print ('CP_ALS: iterations={0}, f={1}, f-delta={2}'.format(iter, fit, fitchange))
             else:
-                print 'CP_ALS: iterations={0}, f-delta={1}'.format(iter, fitchange)
+                print ('CP_ALS: iterations={0}, f-delta={1}'.format(iter, fitchange))
 
         # Check for convergence
         if flag == 0:
