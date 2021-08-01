@@ -101,11 +101,11 @@ class PARAFAC2(object):
             error = abs(self.sigma_new - self.sigma_old) #/ self.sigma_old
             self.errList.append(error)
             if (i + 1) % self.printitn == 0:
-                print 'PARAFAC2: iterations={0}, difference={1}, fit_difference={2}'.format(i + 1, self.errList[-1],
-                                                                                            self.sigma_new)
+                print ('PARAFAC2: iterations={0}, difference={1}, fit_difference={2}'.format(i + 1, self.errList[-1],
+                                                                                            self.sigma_new))
             elif error < self.tol:
-                print 'PARAFAC2: iterations={0}, difference={1}, fit_difference={2}'.format(i + 1, self.errList[-1],
-                                                                                            self.sigma_new)
+                print ('PARAFAC2: iterations={0}, difference={1}, fit_difference={2}'.format(i + 1, self.errList[-1],
+                                                                                            self.sigma_new))
 
             if error < self.tol:
                 break
