@@ -147,7 +147,7 @@ def basic(file_name=None, function_name=None, recover=None, omega=None, r=2, tol
             Rec = None
             full = dedicom.fit
         elif function_name == '0':
-            print 'Successfully Exit'
+            print ('Successfully Exit')
             return None, None, None, None
         else:
             raise ValueError('No Such Method')
@@ -166,26 +166,26 @@ def basic(file_name=None, function_name=None, recover=None, omega=None, r=2, tol
             # newsubs = newsubs.append(temp.tosptensor().subs)
             # tempvals = tempvals.append(temp.tosptensor().vals)
             # newfilename = file_name[:-4] + '_Decomposite' + file_name[-4:]
-            print "\n" + "The original Multiset Data is: "
-            print Ori
-            print "\n" + "The Decomposed Result is: "
-            print Final
+            print ("\n" + "The original Multiset Data is: ")
+            print (Ori)
+            print ("\n" + "The Decomposed Result is: ")
+            print (Final)
         else:
             newsubs = full.tosptensor().subs
             tempvals = full.tosptensor().vals
             newfilename = file_name[:-4] + '_Decomposite' + file_name[-4:]
-            print "\n" + "The original Tensor is: "
-            print Ori
-            print "\n" + "The Decomposed Result is: "
-            print Final
+            print ("\n" + "The original Tensor is: ")
+            print (Ori)
+            print ("\n" + "The Decomposed Result is: ")
+            print (Final)
     else:
         newsubs = Rec.tosptensor().subs
         tempvals = Rec.tosptensor().vals
         newfilename = file_name[:-4] + '_Recover' + file_name[-4:]
-        print "\n" + "The original Tensor is: "
-        print Ori
-        print "\n" + "The Recovered Tensor is: "
-        print Rec.data
+        print ("\n" + "The original Tensor is: ")
+        print (Ori)
+        print ("\n" + "The Recovered Tensor is: ")
+        print (Rec.data)
 
     # Reconstruct
     if function_name != '7' and function_name != 'PARAFAC2':
