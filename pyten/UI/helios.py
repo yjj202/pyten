@@ -27,7 +27,7 @@ def helios(scenario=None):
     elif scenario == '4':  # Dynamic Tensor Decomposition
         [Ori, full, Final, Rec] = pyten.UI.scalable()
     elif scenario == '0':
-        print 'Successfully Exit'
+        print ('Successfully Exit')
         return Ori, full, Final, Rec
     else:
         raise ValueError('No Such scenario')
