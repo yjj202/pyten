@@ -235,4 +235,4 @@ def tt_sizecheck(size):
 if __name__ == '__main__':
     shape = (4, 4, 4)
     subs = [0, 0, 0]
-    print sub2ind(shape, subs)
+    print (sub2ind(shape, subs))
