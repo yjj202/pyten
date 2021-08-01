@@ -197,9 +197,9 @@ class MAST(object):
             self.pre_C = self.C.copy()
 
             if (k + 1) % self.printitn == 0:
-                print 'MAST: iterations={0}, difference={1}'.format(k + 1, self.errList[-1])
+                print ('MAST: iterations={0}, difference={1}'.format(k + 1, self.errList[-1]))
             elif self.stopC < self.tol:
-                print 'MAST: iterations={0}, difference={1}'.format(k + 1, self.errList[-1])
+                print ('MAST: iterations={0}, difference={1}'.format(k + 1, self.errList[-1]))
 
             if self.stopC < self.tol:
                 break
@@ -207,4 +207,4 @@ class MAST(object):
         for i in range(self.N):
             self.finalAs[i] = np.row_stack((self.CAs1[i], self.CAs2[i]))
 
-        print 'MAST: iterations={0}, difference={1}'.format(k + 1, self.errList[-1])
+        print ('MAST: iterations={0}, difference={1}'.format(k + 1, self.errList[-1]))
