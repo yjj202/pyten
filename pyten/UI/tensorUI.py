@@ -114,7 +114,7 @@ class TensorUI:
 
     # Event Handler for Submit Button
     def submitClick(self):
-        print self.auxFilesPath
+        print (self.auxFilesPath)
 
         if self.selectedScenario == self.scenarios[0]:
             value = '1'
