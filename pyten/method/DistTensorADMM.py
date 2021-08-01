@@ -275,7 +275,7 @@ class DistTensorADMM(object):
 
         normData = np.sqrt(rawData.map(lambda x: x.val * x.val).sum())
 
-        print "Dimension: {}x{}x{} with {} non-zero elements.".format(self.I, self.J, self.K, self.nnz)
+        print ("Dimension: {}x{}x{} with {} non-zero elements.".format(self.I, self.J, self.K, self.nnz))
 
         iPartitioner = CustomizedPartitioner(self.numIBlocks)
         jPartitioner = CustomizedPartitioner(self.numJBlocks)
@@ -300,7 +300,7 @@ class DistTensorADMM(object):
                               .mapValues(mapValuesFunc)\
                               .persist(self.intermediateRDDStorageLevel)
 
-        print "Time - Process Raw Tensor Data: {} sec.".format(time.time() - start_time)
+        print ("Time - Process Raw Tensor Data: {} sec.".format(time.time() - start_time))
 
         start_time = time.time()
 
@@ -352,7 +352,7 @@ class DistTensorADMM(object):
         Yj = self.initFactors(jOutBlocks, 'variable')
         Yk = self.initFactors(kOutBlocks, 'variable')
 
-        print "Time - Initial Factor Matrices: {} sec.".format(time.time() - start_time)
+        print ("Time - Initial Factor Matrices: {} sec.".format(time.time() - start_time))
 
         start_time = time.time()
 
@@ -370,7 +370,7 @@ class DistTensorADMM(object):
         jAtA = self.computeAtA(jFactors)
         kAtA = self.computeAtA(kFactors)
 
-        print "Time - Two AtA Matrices: {} sec.".format(time.time() - start_time)
+        print ("Time - Two AtA Matrices: {} sec.".format(time.time() - start_time))
 
         # start_time = time.time()
 
@@ -453,11 +453,11 @@ class DistTensorADMM(object):
             fits.append(fit)
             fitchange = abs(fit - fitold)
             fitold = fit
-            print error, fit, fitchange
+            print (error, fit, fitchange)
             if fitchange < self.tol:
                 break
 
-            print "Time - Update Factor Matrices: {} sec.".format(time.time() - start_time)
+            print ("Time - Update Factor Matrices: {} sec.".format(time.time() - start_time))
 
         self.iFactors = iFactors
         self.jFactors = jFactors
@@ -478,8 +478,8 @@ class DistTensorADMM(object):
 
         self.ktensor = pyten.tenclass.Ktensor(lambdaVals, self.Us)
 
-        print errors
-        print fits
+        print (errors)
+        print (fits)
 
 
 
