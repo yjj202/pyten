@@ -147,7 +147,7 @@ def auxiliary(file_name=None, function_name=None, aux_mode=None, aux_file=None, 
                         Y = [Y, X2.toarray()]
 
     elif function_name == '0':
-        print 'Successfully Exit'
+        print ('Successfully Exit')
         return None, None, None, None
     else:
         raise ValueError('No Such Method')
@@ -181,7 +181,7 @@ def auxiliary(file_name=None, function_name=None, aux_mode=None, aux_file=None, 
             full = Final.totensor()
 
         elif function_name == '0':
-            print 'Successfully Exit'
+            print ('Successfully Exit')
             return None, None, None, None
         else:
             raise ValueError('No Such Method')
@@ -195,18 +195,18 @@ def auxiliary(file_name=None, function_name=None, aux_mode=None, aux_file=None, 
         newsubs = full.tosptensor().subs
         tempvals = full.tosptensor().vals
         newfilename = file_name[:-4] + '_Decomposite' + file_name[-4:]
-        print "\n" + "The original Tensor is: "
-        print Ori
-        print "\n" + "The Decomposed Result is: "
-        print Final
+        print ("\n" + "The original Tensor is: ")
+        print (Ori)
+        print ("\n" + "The Decomposed Result is: ")
+        print (Final)
     else:
         newsubs = Rec.tosptensor().subs
         tempvals = Rec.tosptensor().vals
         newfilename = file_name[:-4] + '_Recover' + file_name[-4:]
-        print "\n" + "The original Tensor is: "
-        print Ori
-        print "\n" + "The Recovered Tensor is: "
-        print Rec.data
+        print ("\n" + "The original Tensor is: ")
+        print (Ori)
+        print ("\n" + "The Recovered Tensor is: ")
+        print (Rec.data)
 
     # Reconstruct
     df = dat1
