@@ -21,10 +21,10 @@ import pyten
 [OriTensor, DeTensor, TenClass, RecTensor] = pyten.UI.helios()
 
 # Results
-print OriTensor  # Original Tensor (For scalable methods it is None)
-print DeTensor.data  # Full Tensor reconstructed by decomposed matrices
-print TenClass  # Final Decomposition Results e.g. Ttensor or Ktensor
-print RecTensor.data  # Recovered Tensor (Completed Tensor)
+print (OriTensor  # Original Tensor (For scalable methods it is None))
+print (DeTensor.data  # Full Tensor reconstructed by decomposed matrices)
+print (TenClass  # Final Decomposition Results e.g. Ttensor or Ktensor)
+print (RecTensor.data  # Recovered Tensor (Completed Tensor))
 
 """ Four UI Functions For Four Scenarios"""
 import pyten
@@ -168,7 +168,7 @@ from pyten.tools import tenerror
 realX = sol1.totensor()
 [Err1, ReErr11, ReErr21] = tenerror(self.X, realX, Omega1)
 # [Err2, ReErr12, ReErr22] = tenerror(self_no_aux.X, realX, Omega1)
-print '\n', 'The Relative Error of the Two Methods are:', ReErr11
+print ('\n', 'The Relative Error of the Two Methods are:', ReErr11)
 
 
 # 2. Use  CMTF Method to solve Tensor Completion With Coupled Matrices
@@ -195,7 +195,7 @@ from pyten.tools import tenerror
 realX = sol1.totensor()
 [Err1, ReErr11, ReErr21] = tenerror(Rec1, realX, Omega1)
 # [Err1, ReErr12, ReErr22] = tenerror(Rec2, realX, Omega1)
-print '\n', 'The Relative Error of the Two Methods are:', ReErr11
+print ('\n', 'The Relative Error of the Two Methods are:', ReErr11)
 
 
 '''Scenario 3: Dynamic Tensor Decomposition/Completion'''
@@ -227,7 +227,7 @@ for t in range(time_steps):
     # Test Current Step OLSGD Completion Error
     realX = sol1[t].totensor()
     [Err1, ReErr11, ReErr21] = tenerror(self1.recx, realX, Omega1[t])
-    print 'OLSGD Recover Error at Current Step:', Err1, ReErr11, ReErr21
+    print ('OLSGD Recover Error at Current Step:', Err1, ReErr11, ReErr21)
 
 
 
@@ -273,7 +273,7 @@ realX = sol1.totensor()
 [Err2, ReErr21, ReErr22] = tenerror(self1.ktensor.totensor(), realX, Omega1)
 RecTensor = self2.ktensor.totensor().data*(1-Omega1)+X1.data*Omega1
 [Err3, ReErr31, ReErr32] = tenerror(RecTensor, realX, Omega1)
-print '\n', 'The Relative Error of the Three Distributed Methods are:', ReErr21, ReErr22, ReErr32
+print ('\n', 'The Relative Error of the Three Distributed Methods are:', ReErr21, ReErr22, ReErr32)
 
 
 
