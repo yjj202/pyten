@@ -143,9 +143,9 @@ class TNCP(object):
             self.errList.append(error)
 
             if (k + 1) % self.printitn == 0:
-                print 'TNCP: iterations={0}, difference={1}'.format(k + 1, self.errList[-1])
+                print ('TNCP: iterations={0}, difference={1}'.format(k + 1, self.errList[-1]))
             elif error < self.tol:
-                print 'TNCP: iterations={0}, difference={1}'.format(k + 1, self.errList[-1])
+                print ('TNCP: iterations={0}, difference={1}'.format(k + 1, self.errList[-1]))
 
             if error < self.tol:
                 break
