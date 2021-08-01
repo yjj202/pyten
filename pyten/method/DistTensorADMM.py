@@ -310,7 +310,7 @@ class DistTensorADMM(object):
         jOutBlocks = self.makeBlock(tensorBlocks, 1, jPartitioner)
         kOutBlocks = self.makeBlock(tensorBlocks, 2, kPartitioner)
 
-        print "Time - Calculate OutBlocks: {} sec.".format(time.time() - start_time)
+        print ("Time - Calculate OutBlocks: {} sec.".format(time.time() - start_time))
 
         start_time = time.time()
 
