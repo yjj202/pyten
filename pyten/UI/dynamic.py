@@ -48,7 +48,7 @@ def dynamic(file_name=None, function_name=None, fore__file=None, save__file=None
             temp = np.load(fore__file)
             self = temp.all()
         elif Former_result == '0':
-            print 'Successfully Exit'
+            print ('Successfully Exit')
             return None, None, None, None
 
     elif self is None:
@@ -184,18 +184,18 @@ def dynamic(file_name=None, function_name=None, fore__file=None, save__file=None
         newsubs = full.tosptensor().subs
         tempvals = full.tosptensor().vals
         newfilename = file_name[:-4] + '_Decomposite' + file_name[-4:]
-        print "\n" + "The original Tensor is: "
-        print Ori
-        print "\n" + "The Decomposed Result is: "
-        print Final
+        print ("\n" + "The original Tensor is: ")
+        print (Ori)
+        print ("\n" + "The Decomposed Result is: ")
+        print (Final)
     else:
         newsubs = Rec.tosptensor().subs
         tempvals = Rec.tosptensor().vals
         newfilename = file_name[:-4] + '_Recover' + file_name[-4:]
-        print "\n" + "The original Tensor is: "
-        print Ori
-        print "\n" + "The Recovered Tensor is: "
-        print Rec.data
+        print ("\n" + "The original Tensor is: ")
+        print (Ori)
+        print ("\n" + "The Recovered Tensor is: ")
+        print (Rec.data)
 
     # Reconstruct
     df = dat1
