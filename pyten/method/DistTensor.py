@@ -329,7 +329,7 @@ class TensorDecompositionALS(object):
         jFactors = self.initFactors(jOutBlocks)
         kFactors = self.initFactors(kOutBlocks)
 
-        print "TIME - Initial Factor Matrices: {} sec.".format(time.time() - start_init)
+        print ("TIME - Initial Factor Matrices: {} sec.".format(time.time() - start_init))
 
         # calculate AtA for dimensions J and K
         jAtA = self.computeAtA(jFactors)
@@ -387,7 +387,7 @@ class TensorDecompositionALS(object):
             # calculate the change of fit comparing with the previous one
             fitchange = abs(fit - fitold)
             fitold = fit
-            print "Iteration {}: error-{}, fit-{} and fitchange-{} with {} seconds".format(iteration, error, fit, fitchange, time.time() - start_inner)
+            print ("Iteration {}: error-{}, fit-{} and fitchange-{} with {} seconds".format(iteration, error, fit, fitchange, time.time() - start_inner))
             # stopping criteria
             if fitchange < self.tol:
                 break
