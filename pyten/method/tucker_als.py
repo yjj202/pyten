@@ -136,7 +136,7 @@ def tucker_als(y, r=20, omega=None, tol=1e-4, max_iter=100, init='random', print
 
         # Print inner loop fitting change
         if printitn != 0 and iter % printitn == 0:
-            print ' Tucker_ALS: iterations={0}, fit = {1}, fit-delta = {2}\n'.format(iter, fit, fitchange)
+            print (' Tucker_ALS: iterations={0}, fit = {1}, fit-delta = {2}\n'.format(iter, fit, fitchange))
             # print ' Iter ',iter,': fit = ',fit,'fitdelta = ',fitchange,'\n'
         # Check for convergence
         if (iter > 1) and (fitchange < fitchangetol):
