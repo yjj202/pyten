@@ -97,7 +97,7 @@ realX = sol1.totensor()
 [Err4, ReErr14, ReErr24] = tenerror(rX4, realX, Omega1)
 [Err5, ReErr15, ReErr25] = tenerror(rX5, realX, Omega1)
 [Err6, ReErr16, ReErr26] = tenerror(self1.X, realX, Omega1)
-print '\n', 'The Relative Error of the Six Methods are:', ReErr21, ReErr22, ReErr23, ReErr24, ReErr25, ReErr26
+print ('\n', 'The Relative Error of the Six Methods are:', ReErr21, ReErr22, ReErr23, ReErr24, ReErr25, ReErr26)
 
 # 2. Real Problem - Image Recovery
 import matplotlib.image as mpimg  # Use it to load image
@@ -140,7 +140,7 @@ realX = X0
 [Err4, ReErr14, ReErr24] = tenerror(rX4, realX, Omega1)
 [Err5, ReErr15, ReErr25] = tenerror(rX5, realX, Omega1)
 [Err6, ReErr16, ReErr26] = tenerror(self1.X, realX, Omega1)
-print '\n', 'The Relative Error of the Six Methods are:', ReErr21, ReErr22, ReErr23, ReErr24, ReErr25, ReErr26
+print ('\n', 'The Relative Error of the Six Methods are:', ReErr21, ReErr22, ReErr23, ReErr24, ReErr25, ReErr26)
 
 '''Scenario 2: Tensor Completion/Decomposition with Auxiliary Information'''
 # 1. Use  AirCP Method to solve Tensor Completion With Auxiliary Similarity Matrices
