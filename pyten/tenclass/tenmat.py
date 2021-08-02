@@ -43,7 +43,7 @@ class Tenmat(object):
                 raise ValueError("Tenmat: incorrect specification of dimensions.")
             ##################
 
-            if not (range(0, x.ndims) == sorted(np.append(rdim, cdim))):
+            if not (list(range(0, x.ndims)) == sorted(np.append(rdim, cdim))):
                 raise ValueError("Tenmat: second argument must be a list or an integer.")
 
             self.rowIndices = rdim
