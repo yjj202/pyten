@@ -48,8 +48,8 @@ class AirCP(object):
         elif type(sim_mats) != np.ndarray and type(sim_mats) != list:
             raise ValueError("AirCP: cannot recognize the format of similarity matrices from auxiliary information!")
         else:
-            self.simMats = np.array(sim_mats)
-        self.L = np.array([csgraph.laplacian(simMat, normed=False) for simMat in self.simMats])
+            self.simMats = np.array(sim_mats,dtype=object)
+        self.L = np.array([csgraph.laplacian(simMat, normed=False) for simMat in self.simMats],dtype=object)
 
         if alpha is None:
             self.alpha = np.ones(self.ndims)
@@ -86,6 +86,7 @@ class AirCP(object):
         self.Y = [np.zeros((self.shape[i], self.rank)) for i in range(self.ndims)]
         self.Z = [np.zeros((self.shape[i], self.rank)) for i in range(self.ndims)]
         self.II = pyten.tools.tendiag(np.ones(self.rank), [self.rank for i in range(self.ndims)])
+        
         self.X = self.T.data + (1 - self.omega.data) * (self.T.norm() / self.T.size())
         self.X = pyten.tenclass.Tensor(self.X)
         self.X_pre = self.X.copy()
