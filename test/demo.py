@@ -21,10 +21,10 @@ import pyten
 [OriTensor, DeTensor, TenClass, RecTensor] = pyten.UI.helios()
 
 # Results
-print (OriTensor  # Original Tensor (For scalable methods it is None))
-print DeTensor.data  # Full Tensor reconstructed by decomposed matrices
-print (TenClass  # Final Decomposition Results e.g. Ttensor or Ktensor)
-print (RecTensor.data  # Recovered Tensor (Completed Tensor))
+print (OriTensor)  # Original Tensor (For scalable methods it is None
+print (DeTensor.data)  # Full Tensor reconstructed by decomposed matrices
+print (TenClass)  # Final Decomposition Results e.g. Ttensor or Ktensor
+print (RecTensor.data)  # Recovered Tensor (Completed Tensor)
 
 """ Four UI Functions For Four Scenarios"""
 import pyten
