@@ -1,6 +1,7 @@
 import sys
 sys.path.append('/path/to/pyten/tenclass')
-import tensor, sptenmat
+from pyten.tenclass import tensor
+from pyten.tenclass import sptenmat
 import numpy as np
 import scipy as sp
 from pyten.tools import tools
