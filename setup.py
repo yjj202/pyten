@@ -11,7 +11,8 @@ import pip
 global include_dirs
 include_dirs = []
 
-deps_list = ['numpy', 'scipy', 'pandas']
+#deps_list = ['numpy', 'scipy', 'pandas']
+deps_list = []
 
 def deps_install():
     for package in deps_list:
