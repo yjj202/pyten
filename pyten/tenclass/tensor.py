@@ -1,6 +1,6 @@
 import sys
 sys.path.append('/path/to/pyten/tenclass')
-import sptensor
+from pyten.tenclass import sptensor
 import numpy as np
 from pyten.tools import tools
 
@@ -168,9 +168,9 @@ class Tensor(object):
         dim = mode - 1
         n = self.ndims
         shape = list(self.shape)
-        order = [dim] + range(0, dim) + range(dim + 1, n)
+        order = [dim] + list(range(0, dim)) + list(range(dim + 1, n))
         new_data = self.permute(order).data
-        new_data = new_data.reshape(shape[dim], tools.prod(shape) / shape[dim])
+        new_data = new_data.reshape(shape[dim], int(tools.prod(shape) / shape[dim]))
         if option is None:
             new_data = np.dot(matrix, new_data)
             p = matrix.shape[0]
