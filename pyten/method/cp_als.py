@@ -54,7 +54,8 @@ def cp_als(y, r=20, omega=None, tol=1e-4, maxiter=100, init='random', printitn=1
         # first index in dimorder because that will be solved for in the first
         # inner iteration.
         if init == 'random':
-            Uinit = range(N)
+            Uinit = list(range(N))
+            print(Uinit)
             Uinit[0] = []
             for n in dimorder[1:]:
                 Uinit[n] = numpy.random.random([X.shape[n], r])
