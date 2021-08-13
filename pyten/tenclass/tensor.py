@@ -236,7 +236,7 @@ class Tensor(object):
         temp1[len(temp1):len(temp1)] = temp3
         xn = self.permute(temp1)
         xn = xn.tondarray()
-        xn = xn.reshape([xn.shape[0], int(np.prod(xn.shape) / xn.shape[0]]))
+        xn = xn.reshape([xn.shape[0], int(np.prod(xn.shape) / xn.shape[0])])
         return xn
 
     def nvecs(self, n=None, r=None):
