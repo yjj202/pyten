@@ -96,7 +96,7 @@ def cp_als(y, r=20, omega=None, tol=1e-4, maxiter=100, init='random', printitn=1
             temp1[len(temp1):len(temp1)] = temp2
             Xn = X.permute(temp1)
             Xn = Xn.tondarray()
-            Xn = Xn.reshape([Xn.shape[0], Xn.size / Xn.shape[0]])
+            Xn = Xn.reshape([Xn.shape[0], int(Xn.size / Xn.shape[0])])
             tempU = U[:]
             tempU.pop(n)
             tempU.reverse()
