@@ -58,7 +58,7 @@ def tucker_als(y, r=20, omega=None, tol=1e-4, max_iter=100, init='random', print
         # first index in dimorder because that will be solved for in the first
         # inner iteration
         if init == 'random':
-            Uinit = range(N)
+            Uinit = list(range(N))
             Uinit[0] = []
             for n in dimorder[1:]:
                 Uinit[n] = np.random.random([X.shape[n], r[n]])
@@ -66,7 +66,7 @@ def tucker_als(y, r=20, omega=None, tol=1e-4, max_iter=100, init='random', print
             # Compute an orthonormal basis for the dominant
             # Rn-dimensional left singular subspace of
             # X_(n) (0 <= n <= N-1).
-            Uinit = range(N)
+            Uinit = list(range(N))
             Uinit[0] = []
             for n in dimorder[1:]:
                 print('  Computing %d leading e-vectors for factor %d.\n', r, n)
