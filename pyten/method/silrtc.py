@@ -57,7 +57,7 @@ def silrtc(x, omega=None, alpha=None, gamma=None, max_iter=100, epsilon=1e-5, pr
     x.data[omega == 0] = np.mean(x.data[omega == 1])
     errList = np.zeros([max_iter, 1])
 
-    M = range(N)
+    M = list(range(N))
     gammasum = sum(gamma)
     tau = alpha / gamma
 
