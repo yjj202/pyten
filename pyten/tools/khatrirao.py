@@ -16,5 +16,5 @@ def khatrirao(u):
             temp1 = np.outer(temp, u[i][:, j])
             temp = temp1.reshape([1, temp1.size])
         k = np.append(k, temp)
-    k = (k.reshape([r, len(k) / r])).transpose()
+    k = (k.reshape([r, int(len(k) / r)])).transpose()
     return k
