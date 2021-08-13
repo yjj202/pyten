@@ -58,8 +58,8 @@ def halrtc(x, omega=None, alpha=None, beta=None, max_iter=100, epsilon=1e-5, pri
     x.data[omega == 0] = np.mean(x.data[omega == 1])
     errList = np.zeros([max_iter, 1])
 
-    Y = range(N)
-    M = range(N)
+    Y = list(range(N))
+    M = list(range(N))
 
     for i in range(N):
         Y[i] = x.data
