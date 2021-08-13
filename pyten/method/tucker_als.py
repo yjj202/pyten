@@ -101,7 +101,7 @@ def tucker_als(y, r=20, omega=None, tol=1e-4, max_iter=100, init='random', print
         for n in range(N):
             tempU = U[:]
             tempU.pop(n)
-            tempIndex = range(N)
+            tempIndex = list(range(N))
             tempIndex.pop(n)
             Utilde = X
             for k in range(len(tempIndex)):
