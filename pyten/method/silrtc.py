@@ -84,5 +84,6 @@ def silrtc(x, omega=None, alpha=None, gamma=None, max_iter=100, epsilon=1e-5, pr
             errList = errList[0:(k + 1)]
             break
 
+    print (x.data)
     print ('SiLRTC ends: total iterations = {0}   difference = {1}\n\n'.format(k + 1, errList[k]))
     return x
