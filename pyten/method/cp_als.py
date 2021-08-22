@@ -103,7 +103,7 @@ def cp_als(y, r=20, omega=None, tol=1e-4, maxiter=100, init='random', printitn=1
             Unew = Xn.dot(khatrirao(tempU))
 
             # Compute the matrix of coefficients for linear system
-            temp = range(n)
+            temp = list(range(n))
             temp[len(temp):len(temp)] = range(n + 1, N)
             y = numpy.prod(UtU[temp, :, :], axis=0)
             Unew = Unew.dot(numpy.linalg.inv(y))
