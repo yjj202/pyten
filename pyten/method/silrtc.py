@@ -76,8 +76,6 @@ def silrtc(x, omega=None, alpha=None, gamma=None, max_iter=100, epsilon=1e-5, pr
         Xlast = x.data.copy()
         Xlast = pyten.tenclass.Tensor(Xlast)
         
-        print(Xsum)
-
         x.data = Xsum / gammasum
         x.data = T * omega + x.data * (1 - omega)
         diff = x.data - Xlast.data
