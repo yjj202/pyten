@@ -123,7 +123,7 @@ def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='rand
             Unew = xn.dot(pyten.tools.khatrirao(tempU))
 
             # Compute the matrix of coefficients for linear system
-            temp = range(n)
+            temp = list(range(n))
             temp[len(temp):len(temp)] = range(n + 1, N)
             B = numpy.prod(UtU[temp, :, :], axis=0)
             if int != type(c_m):
