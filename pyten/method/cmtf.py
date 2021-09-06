@@ -108,8 +108,8 @@ def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='rand
         for n in range(N):
             # Calculate Unew = X_(n) * khatrirao(all U except n, 'r').
             temp1 = [n]
-            temp2 = range(n)
-            temp3 = range(n + 1, N)
+            temp2 = list(range(n))
+            temp3 = list(range(n + 1, N))
             temp2.reverse()
             temp3.reverse()
             temp1[len(temp1):len(temp1)] = temp3
