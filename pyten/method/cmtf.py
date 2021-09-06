@@ -116,7 +116,7 @@ def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='rand
             temp1[len(temp1):len(temp1)] = temp2
             xn = x.permute(temp1)
             xn = xn.tondarray()
-            xn = xn.reshape([xn.shape[0], int(xn.size / xn.shape[0]]))
+            xn = xn.reshape([xn.shape[0], int(xn.size / xn.shape[0])])
             tempU = U[:]
             tempU.pop(n)
             tempU.reverse()
