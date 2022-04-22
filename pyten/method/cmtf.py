@@ -52,6 +52,7 @@ def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='rand
     # Define convergence tolerance & maximum iteration
     #fitchangetol = 1e-4
     fitchangetol = 1e-8
+    print ('CMTF tolernace: iterations={0}'.format(fitchangetol))
     maxiters = maxiter
 
     # Recover or just decomposition
