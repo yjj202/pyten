@@ -50,8 +50,8 @@ def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='rand
     dimorder = range(N)  # 'dimorder' - Order to loop through dimensions {0:(ndims(A)-1)}
 
     # Define convergence tolerance & maximum iteration
-    fitchangetol = 1e-4
-    #fitchangetol = 1e-8
+    #fitchangetol = 1e-4
+    fitchangetol = 1e-8
     print ('CMTF tolernace: iterations={0}'.format(fitchangetol))
     maxiters = maxiter
 
