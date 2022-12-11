@@ -3,7 +3,7 @@ import pyten.method
 import pyten.tenclass
 
 
-def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='random', printitn=100,fitChgTol=1e-4):
+def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='random', printitn=100):
     """
     CMTF Compute a Coupled Matrix and Tensor Factorization (and recover the Tensor).
     ---------
@@ -50,10 +50,10 @@ def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='rand
     dimorder = range(N)  # 'dimorder' - Order to loop through dimensions {0:(ndims(A)-1)}
 
     # Define convergence tolerance & maximum iteration
-    fitchangetol =  fitChgTol
+    fitchangetol =  tol
     #fitchangetol = 1e-4
     #fitchangetol = 1e-8
-    print ('CMTF tolernace: iterations={0}'.format(fitchangetol))
+    print ('CMTF tolernace: iterations={0}'.format(tol))
     maxiters = maxiter
 
     # Recover or just decomposition
@@ -79,7 +79,7 @@ def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='rand
             for n in dimorder[1:]:
                 Uinit[n] = numpy.random.random([x.shape[n], r])
         elif init == 'nvecs' or init == 'eigs':
-            Uinit = range(N)
+            Uinit = list(range(N))
             Uinit[0] = []
             for n in dimorder[1:]:
                 Uinit[n] = x.nvecs(n, r)  # first r leading eigenvecters
