@@ -76,7 +76,7 @@ def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='rand
             for n in dimorder[1:]:
                 Uinit[n] = numpy.random.random([x.shape[n], r])
         elif init == 'nvecs' or init == 'eigs':
-            Uinit = range(N)
+            Uinit = list(range(N))
             Uinit[0] = []
             for n in dimorder[1:]:
                 Uinit[n] = x.nvecs(n, r)  # first r leading eigenvecters
