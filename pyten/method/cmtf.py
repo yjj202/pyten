@@ -40,6 +40,9 @@ def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='rand
     else:
         c_m = [i - 1 for i in c_m]
 
+    # yjj    
+    print('1---',c_m)    
+        
     # Construct omega if no input
     if omega is None:
         omega = x.data * 0 + 1
@@ -86,6 +89,11 @@ def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='rand
         else:
             raise TypeError('The selected initialization method is not supported')
 
+        ## yjj
+        print(r)
+        for i in range(len(c_m)):
+            print('2---',i,y[i].shape[1])
+            
         # Set up for iterations - initializing U and the fit.
         U = Uinit[:]
         if type(c_m) == int:
@@ -94,6 +102,9 @@ def cmtf(x, y=None, c_m=None, r=2, omega=None, tol=1e-4, maxiter=100, init='rand
             V = [numpy.random.random([y[i].shape[1], r]) for i in range(len(c_m))]
         fit = 0
 
+        ## yjj
+        print('3---',V)
+        
         if printitn > 0:
             print('\nCMTF:\n')
 
